@@ -10,7 +10,7 @@ const Login = () => {
         <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
       </div>
       <div className="login-content">
-        <h1 className="login-title">Welcome to LogIn</h1>
+        <h1 className="login-title">Welcome to Expense Tracker App</h1>
         <Box
           border={1}
           borderColor="secondary.main"
