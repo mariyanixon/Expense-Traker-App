@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Perform login logic here, e.g., sending a request to the server
+
+    // Assuming the login is successful, navigate to the home page
+    navigate('/home');
+  };
+
   return (
     <div className="login-container">
       <div className="video-background">
         <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
       </div>
       <div className="login-content">
-        <h1 className="login-title">Welcome to LogIn</h1>
+        <h1 className="login-title">Welcome to Expense Tracker App</h1>
         <Box
           border={1}
           borderColor="secondary.main"
@@ -22,7 +33,7 @@ const Login = () => {
             maxWidth: '400px',
             margin: '0 auto',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            borderStyle: 'none'
+            borderStyle: 'none',
           }}
         >
           <h2 style={{ color: '#FFFFFF' }}>Login</h2>
@@ -33,9 +44,14 @@ const Login = () => {
               width: '100%',
               color: '#FFFFFF',
               '& .MuiInputLabel-root': {
-                color: '#FFFFFF'
-              }
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
             }}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <br />
           <br />
@@ -47,14 +63,19 @@ const Login = () => {
               width: '100%',
               color: '#FFFFFF',
               '& .MuiInputLabel-root': {
-                color: '#FFFFFF'
-              }
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
             }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <br />
           <br />
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4 }}>
-            <Button id="bt" variant="contained" color="success">
+            <Button id="bt" variant="contained" color="success" onClick={handleLogin}>
               Submit
             </Button>
             <Button id="bt" variant="contained" color="warning">
@@ -63,18 +84,26 @@ const Login = () => {
           </div>
           <br />
           <div style={{ textAlign: 'right' }}>
-            <Typography sx={{ color: '#FFFFFF' }}>Forgot password?</Typography> 
+            <Typography sx={{ color: '#FFFFFF' }}>Forgot password?</Typography>
           </div>
           <div style={{ textAlign: 'left' }}>
-          <Typography sx={{ color: '#FFFFFF' }}>
-              Don't have an account?<Link to="/Sign" style={{ color: 'red' }}>Sign Up</Link>
+            <Typography sx={{ color: '#FFFFFF' }}>
+              Don't have an account?
+              <Link to="/sign" style={{ color: 'red' }}>
+                Sign Up
+              </Link>
+            </Typography>
+            <Typography sx={{ color: '#FFFFFF' }}>
+              Are you an admin?
+              <Link to="/adminlogin" style={{ color: 'red' }}>
+                Login
+              </Link>
             </Typography>
           </div>
         </Box>
       </div>
     </div>
   );
-}
+};
 
 export default Login;
-
