@@ -1,4 +1,4 @@
-import React from 'react';
+// Import necessary components and libraries
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Sign from './Sign';
@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign" element={<Sign />} />
           <Route path="/home" element={<Home />} />

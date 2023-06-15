@@ -26,11 +26,11 @@ const Sign = () => {
   }, [showTerms]);
 
   const handleSubmit = () => {
-    // Perform signup logic here
+  
     console.log('Signup submitted:', name, place, age, email, education, contactDetails, phoneNumber);
 
-    // Assuming the signup is successful, navigate to the login page
-    navigate('/login');
+   
+    navigate('/Login');
   };
 
   const handleReset = () => {
@@ -55,9 +55,6 @@ const Sign = () => {
       </div>
       <div className="sign-content">
         <Box>
-          <br></br>
-          <br></br>
-          <br></br>
           <h2>Sign Up</h2>
           <div className="form-field">
             <p>Name</p>
@@ -88,18 +85,17 @@ const Sign = () => {
             <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
-              <p>Set Password</p>
-              <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
-            </div>
-            <div className="form-field">
-              <p>Confirm Password</p>
-              <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
-            </div>
+            <p>Set Password</p>
+            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+          </div>
+          <div className="form-field">
+            <p>Confirm Password</p>
+            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+          </div>
           <div className="form-field" style={{ alignItems: 'center', gap: '10px' }}>
             <input type="checkbox" checked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)} />
             <Typography>I agree to the terms and conditions</Typography>
           </div>
-        
           <br />
           <br />
           <div className="button-group">
@@ -114,7 +110,6 @@ const Sign = () => {
                 Terms and Conditions
               </Button>
             </td>
-            <br/><br/>
           </div>
           {showTerms && (
             <Typography sx={{ position: 'absolute', top: 0, right: 0, margin: '20px', color: 'red' }}>

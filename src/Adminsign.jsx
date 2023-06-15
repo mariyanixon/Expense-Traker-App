@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import './AdminSign.css';
 
 const AdminSign = () => {
@@ -11,13 +12,25 @@ const AdminSign = () => {
   const [contactDetails, setContactDetails] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [showTerms, setShowTerms] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     // Handle form submission logic here
+
+    // Assuming the form submission is successful, navigate to the AdminLogin page
+    navigate('/Adminlogin');
   };
 
   const handleReset = () => {
     // Handle form reset logic here
+    setName('');
+    setPlace('');
+    setAge('');
+    setEmail('');
+    setEducation('');
+    setContactDetails('');
+    setPhoneNumber('');
+    setShowTerms(false);
   };
 
   const handleShowTerms = () => {
@@ -63,20 +76,19 @@ const AdminSign = () => {
             </div>
             <div className="form-field">
               <p>Set Password</p>
-              <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+              <TextField variant="filled" type="password" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
             </div>
             <div className="form-field">
               <p>Confirm Password</p>
-              <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+              <TextField variant="filled" type="password" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
             </div>
-            
             <br />
             <br />
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4 }}>
-              <Button id="bt" variant="contained" color="success" onClick={handleSubmit}>
+              <Button variant="contained" color="success" onClick={handleSubmit}>
                 Submit
               </Button>
-              <Button id="bt" variant="contained" color="warning" onClick={handleReset}>
+              <Button variant="contained" color="warning" onClick={handleReset}>
                 Reset
               </Button>
               <Button variant="contained" color="secondary" onClick={handleShowTerms}>
