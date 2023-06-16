@@ -21,7 +21,7 @@ const Login = () => {
         <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
       </div>
       <div className="login-content">
-        <h1 className="login-title">Welcome to Expense Tracker App</h1>
+        <h1 className="login-title">Welcome to XTrack</h1>
         <Box
           border={1}
           borderColor="secondary.main"
@@ -83,9 +83,7 @@ const Login = () => {
             </Button>
           </div>
           <br />
-          <div style={{ textAlign: 'right' }}>
-            <Typography sx={{ color: '#FFFFFF' }}>Forgot password?</Typography>
-          </div>
+          
           <div style={{ textAlign: 'left' }}>
             <Typography sx={{ color: '#FFFFFF' }}>
               Don't have an account?

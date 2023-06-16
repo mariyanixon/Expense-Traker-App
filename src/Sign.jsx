@@ -13,6 +13,7 @@ const Sign = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,11 +27,38 @@ const Sign = () => {
   }, [showTerms]);
 
   const handleSubmit = () => {
+    const userData = {
+      name,
+      place,
+      age,
+      email,
+      education,
+      contactDetails,
+      phoneNumber,
+      password,
+    };
   
-    console.log('Signup submitted:', name, place, age, email, education, contactDetails, phoneNumber);
+    fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('User registered:', data);
+        navigate('/Login');
+      })
+      .catch((error) => {
+        console.error('Error registering user:', error);
+        // Handle error and show an error message to the user
+      });
+  
+    console.log('Signup submitted:', name, place, age, email, education, contactDetails, phoneNumber,password);
 
    
-    navigate('/Login');
+    // navigate('/Login');
   };
 
   const handleReset = () => {
@@ -42,6 +70,7 @@ const Sign = () => {
     setContactDetails('');
     setPhoneNumber('');
     setAgreeTerms(false);
+    setPassword('');
   };
 
   const handleShowTerms = () => {
@@ -86,11 +115,11 @@ const Sign = () => {
           </div>
           <div className="form-field">
             <p>Set Password</p>
-            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Confirm Password</p>
-            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field" style={{ alignItems: 'center', gap: '10px' }}>
             <input type="checkbox" checked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)} />

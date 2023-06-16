@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import './AdminLogin.css';
 
 const AdminLogin = () => {
@@ -12,7 +12,7 @@ const AdminLogin = () => {
     // Perform login logic here, e.g., sending a request to the server
 
     // Assuming the login is successful, navigate to the admin dashboard
-    navigate('/admin-dashboard');
+    navigate('/Dashboard ');
   };
 
   return (
@@ -75,25 +75,20 @@ const AdminLogin = () => {
             />
             <br />
             <br />
+            <br />
+        
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4 }}>
-              <Button id="bt" variant="contained" color="success" onClick={handleLogin}>
-                Login
+              <Button id="bt" variant="contained" color="success" onClick={handleLogin}><Link to='/Details'>Login</Link>
+                
               </Button>
               <Button id="bt" variant="contained" color="warning">
                 Reset
               </Button>
             </div>
             <br />
-            <div style={{ textAlign: 'right' }}>
-              <Typography sx={{ color: '#FFFFFF' }}>Forgot password?</Typography>
-            </div>
+           
             <div style={{ textAlign: 'left' }}>
-              <Typography sx={{ color: '#FFFFFF' }}>
-                Don't have an account?
-                <Link to="/admin-sign-up" style={{ color: 'red' }}>
-                  Sign Up
-                </Link>
-              </Typography>
+            
             </div>
           </Box>
         </div>

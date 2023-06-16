@@ -29,10 +29,12 @@
   }
   
   .heading {
-    text-align: right; /* Aligns text to the right */
+    text-align: right;
+    margin-top: 60px;
   }
   
+  
   .table-container {
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 20px; 
   }
   
