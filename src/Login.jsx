@@ -4,15 +4,43 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 import './Login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [name, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Perform login logic here, e.g., sending a request to the server
+  // const handleLogin = () => {
+  //   // Perform login logic here, e.g., sending a request to the server
 
-    // Assuming the login is successful, navigate to the home page
-    navigate('/home');
+  //   // Assuming the login is successful, navigate to the home page
+  //   navigate('/home');
+  // };
+
+  const handleLogin = async () => {
+    try {
+      // Perform login logic here, e.g., sending a request to the server
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, password }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const { token } = data; // Assuming the server response includes a 'token' field
+  
+        // Set the token in local storage
+        localStorage.setItem('token', token);
+        // Assuming the login is successful, navigate to the home page
+        navigate('/home');
+      } else {
+        // Handle login error, such as displaying an error message
+        console.log('Login failed');
+      }
+    } catch (error) {
+      // Handle any network or server errors
+      console.error('Error occurred during login:', error);
+    }
   };
 
   return (
@@ -50,7 +78,7 @@ const Login = () => {
                 color: '#FFFFFF',
               },
             }}
-            value={username}
+            value={name}
             onChange={(e) => setUsername(e.target.value)}
           />
           <br />

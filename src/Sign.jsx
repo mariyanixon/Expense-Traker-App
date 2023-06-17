@@ -115,11 +115,11 @@ const Sign = () => {
           </div>
           <div className="form-field">
             <p>Set Password</p>
-            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPassword(e.target.value)} className="text-field" />
+            <TextField variant="filled" type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Confirm Password</p>
-            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPassword(e.target.value)} className="text-field" />
+            <TextField variant="filled" type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field" style={{ alignItems: 'center', gap: '10px' }}>
             <input type="checkbox" checked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)} />
