@@ -255,13 +255,24 @@ const Home = () => {
     expense: 0
   });
 
+  const getTotal = () => {
+    let total = 0;
+    expenses?.forEach(e => total += e.expense);
+    return total;
+  };
+  const total = getTotal();
+
   useEffect(() => {
     fetchExpenses();
   }, []);
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('/api/expenses');
+      const response = await axios.get('/api/expenses', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`, 
+        }
+      });
       setExpenses(response.data);
     } catch (error) {
       console.error('Error fetching expenses:', error);
@@ -336,6 +347,7 @@ const Home = () => {
         </div>
         <div className="content">
           <h1 className="heading">Welcome To Home Page</h1>
+          <h2 className="">Total Expenses : {total}</h2>
           <div className="table-container">
             <TableContainer>
               <Table>
@@ -350,9 +362,9 @@ const Home = () => {
                 <TableBody>
                   {expenses.map((expense) => (
                     <TableRow key={expense._id}>
-                      <TableCell>{expense.username}</TableCell>
-                      <TableCell>{expense.income}</TableCell>
-                      <TableCell>{expense.expense}</TableCell>
+                      <TableCell  style={{ color: "white"}}>{expense.username}</TableCell>
+                      <TableCell  style={{ color: "white"}}>{expense.income}</TableCell>
+                      <TableCell  style={{ color: "white"}}>{expense.expense}</TableCell>
                       <TableCell>
                         {editingExpenseId === expense._id ? (
                           <form onSubmit={handleUpdateExpense}>

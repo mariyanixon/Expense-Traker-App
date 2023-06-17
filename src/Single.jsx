@@ -143,6 +143,7 @@ const Single = () => {
         console.log('Expense added successfully:', response.data);
         // Handle success, such as showing a success message or redirecting
         navigate('/home'); // Redirect to the Home component
+        // window.location.reload();
       })
       .catch(error => {
         console.error('Error adding expense:', error);
@@ -161,17 +162,39 @@ const Single = () => {
         <Typography variant="h1"> </Typography>
         <br />
         <h4>Enter the monthly income</h4>
-        <TextField variant="standard" label="Income" value={income} onChange={e => setIncome(e.target.value)}></TextField>
+        <TextField  variant="filled"
+            label="Income"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={income} onChange={e => setIncome(e.target.value)}></TextField>
         <br />
         <br />
         <h4>Enter the monthly expense </h4>
-        <TextField variant="standard" label="Expense" value={expense} onChange={e => setExpense(e.target.value)}></TextField>
+        <TextField  variant="filled"
+            label="Expense"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={expense} onChange={e => setExpense(e.target.value)}></TextField>
         <br />
         <br />
 
         <br />
         <Button variant="text" color="warning" onClick={handleAddClick}>
-          <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}>ADD</Link>
+          <Link style={{ textDecoration: 'none', color: 'white' }}>ADD</Link>
         </Button>
       </box>
     </div>

@@ -39,39 +39,6 @@ const Profilepage = () => {
         {/* Submit button */}
         <Button variant="contained" color="primary">Update Profile</Button>
 
-        <ul>
-       <li> <TextField
-          label="Income"
-          type="number"
-          value={income}
-          onChange={(e) => setIncome(e.target.value)}
-        /></li>
-        <br/>
-       <li> <TextField
-          label="Expense"
-          type="number"
-          value={expense}
-          onChange={(e) => setExpense(e.target.value)}
-        /></li>
-        <br/>
-
-        </ul>
-  
-
-
-        {/* Button to calculate total */}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            // Calculate total income and expense
-            const total = parseInt(income) - parseInt(expense);
-            alert(`Total: $${total}`);
-          }}
-        >
-          Calculate Total
-        </Button>
-
 
     </div>
   )

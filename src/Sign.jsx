@@ -82,44 +82,150 @@ const Sign = () => {
       <div className="video-background">
         <video src="/Videos/back.mp4.mp4" autoPlay loop muted></video>
       </div>
+      
       <div className="sign-content">
+        
         <Box>
+        <br></br>
+      <br>
+      </br>
+      <br></br>
+      <br></br>
           <h2>Sign Up</h2>
           <div className="form-field">
             <p>Name</p>
-            <TextField variant="filled" type="text" value={name} onChange={(e) => setName(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="name"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={name} onChange={(e) => setName(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Place</p>
-            <TextField variant="filled" type="text" value={place} onChange={(e) => setPlace(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="place"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={place} onChange={(e) => setPlace(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Age</p>
-            <TextField variant="filled" type="number" value={age} onChange={(e) => setAge(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="age"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={age} onChange={(e) => setAge(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Email id</p>
-            <TextField variant="filled" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="email"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={email} onChange={(e) => setEmail(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Education</p>
-            <TextField variant="filled" type="text" value={education} onChange={(e) => setEducation(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="education"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={education} onChange={(e) => setEducation(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Contact Details</p>
-            <TextField variant="filled" type="text" value={contactDetails} onChange={(e) => setContactDetails(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="contact details"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={contactDetails} onChange={(e) => setContactDetails(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Phone Number</p>
-            <TextField variant="filled" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="phno"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Set Password</p>
-            <TextField variant="filled" type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="set password"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field">
             <p>Confirm Password</p>
-            <TextField variant="filled" type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
+            <TextField  variant="filled"
+            label="confirm"
+            sx={{
+              width: '100%',
+              color: '#FFFFFF',
+              '& .MuiInputLabel-root': {
+                color: '#FFFFFF',
+              },
+              '& .MuiFilledInput-input': {
+                color: '#FFFFFF',
+              },
+            }} value={password} onChange={(e) => setPassword(e.target.value)} className="text-field" />
           </div>
           <div className="form-field" style={{ alignItems: 'center', gap: '10px' }}>
             <input type="checkbox" checked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)} />

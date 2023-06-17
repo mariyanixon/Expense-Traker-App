@@ -8,7 +8,7 @@ const Navbar = () => {
       <Toolbar>
      
        
-      <Button variant="contained" style={{float: 'right'}} color="primary" className="float-right" >Update</Button>
+      {/* <Button variant="contained" style={{float: 'right'}} color="primary" className="float-right" >Update</Button> */}
          <Button  variant='text' color='warning' id='bt'> <Link to="/profilepage" style={{ color: 'red' }}>PROFILE</Link></Button>
          
            </Toolbar>

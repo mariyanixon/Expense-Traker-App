@@ -27,17 +27,26 @@ const Login = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        const { token } = data; // Assuming the server response includes a 'token' field
-  
+        const { token, isBlocked } = data; // Assuming the server response includes a 'token' field
+
+        if (isBlocked) {
+
+          alert("The user is blocked")
+          return;
+        }
         // Set the token in local storage
         localStorage.setItem('token', token);
         // Assuming the login is successful, navigate to the home page
         navigate('/home');
       } else {
+        const data = await response.json();
         // Handle login error, such as displaying an error message
         console.log('Login failed');
+        alert(data.message)
       }
     } catch (error) {
+      
+
       // Handle any network or server errors
       console.error('Error occurred during login:', error);
     }
