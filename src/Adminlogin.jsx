@@ -78,7 +78,7 @@ const AdminLogin = () => {
             <br />
         
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4 }}>
-              <Button id="bt" variant="contained" color="success" onClick={handleLogin}><Link to='/Details'>Login</Link>
+              <Button id="bt" variant="contained" color="success" onClick={handleLogin}>Login
                 
               </Button>
               <Button id="bt" variant="contained" color="warning">

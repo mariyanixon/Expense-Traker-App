@@ -7,7 +7,7 @@ import AdminLogin from './Adminlogin';
 import Single from './Single';
 import Profilepage from "./Profilepage";
 import Dashboard from "./Dashboard";
-import Details from "./Details";
+// import Details from "./Details";
 function App() {
   return (
     <div className="App">
@@ -22,7 +22,7 @@ function App() {
           <Route path='/profilepage' element={<Profilepage/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
           
-          <Route path='/Details' element={<Details/>}/>
+          {/* <Route path='/Details' element={<Details/>}/> */}
         </Routes>
       </Router>
     </div>
