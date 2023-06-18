@@ -9,10 +9,19 @@ const AdminLogin = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Perform login logic here, e.g., sending a request to the server
+              // // Perform login logic here, e.g., sending a request to the server
 
-    // Assuming the login is successful, navigate to the admin dashboard
-    navigate('/Dashboard ');
+              // // Assuming the login is successful, navigate to the admin dashboard
+              // navigate('/Dashboard ');
+
+    // Check if the entered username and password match the predefined values
+    if (username === 'admin' && password === 'admin123') {
+      // Assuming the login is successful, navigate to the admin dashboard
+      navigate('/Dashboard');
+    } else {
+      // Handle incorrect credentials here, such as displaying an error message
+      alert('Incorrect username or password');
+    }
   };
 
   return (
