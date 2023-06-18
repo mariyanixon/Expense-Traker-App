@@ -37,3 +37,10 @@
 .table-container {
   margin-top: 20px; 
 }
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0px;
+  margin-left: 750px;
+}

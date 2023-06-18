@@ -86,9 +86,10 @@ const Sign = () => {
       <div className="sign-content">
         
         <Box>
+          <br></br>
+          <br></br>
         <br></br>
-      <br>
-      </br>
+      <br></br>
       <br></br>
       <br></br>
           <h2>Sign Up</h2>
@@ -235,7 +236,7 @@ const Sign = () => {
           <br />
           <div className="button-group">
             <Button variant="contained" color="primary" onClick={handleSubmit}>
-              Submit
+              SignUp
             </Button>
             <Button variant="contained" color="warning" onClick={handleReset}>
               Reset
