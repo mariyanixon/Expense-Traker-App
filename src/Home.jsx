@@ -347,6 +347,7 @@ const Home = () => {
         </div>
         <div className="content">
           <h1 className="heading">Welcome To Home Page</h1>
+        <img src="/picture/logos.png" alt="Xtrack" width="60" height="60"></img>
           <h2 className="">Total Expenses : {total}</h2>
           <div className="table-container">
             <TableContainer>

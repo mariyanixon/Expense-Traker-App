@@ -57,8 +57,10 @@ const Login = () => {
       <div className="video-background">
         <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
       </div>
+
       <div className="login-content">
         <h1 className="login-title">Welcome to XTrack</h1>
+        <img src="/picture/logos.png" alt="Xtrack" width="60" height="60"></img>
         <Box
           border={1}
           borderColor="secondary.main"
@@ -113,7 +115,7 @@ const Login = () => {
           <br />
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4 }}>
             <Button id="bt" variant="contained" color="success" onClick={handleLogin}>
-              Submit
+              Login
             </Button>
             <Button id="bt" variant="contained" color="warning">
               Reset

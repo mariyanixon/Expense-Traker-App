@@ -32,7 +32,7 @@ const AdminLogin = () => {
         </div>
         <div className="login-content">
           <h1 className="admin-login-title">Admin Login</h1>
-
+          <img src="/picture/logos.png" alt="Xtrack" width="60" height="60"></img>
           <Box
             border={1}
             borderColor="secondary.main"

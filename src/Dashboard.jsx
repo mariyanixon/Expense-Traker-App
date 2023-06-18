@@ -97,6 +97,7 @@ const Dashboard = () => {
         </div>
         <div className="content">
           <h1 className="heading">Admin Dashboard</h1>
+        <img src="/picture/logos.png" alt="Xtrack" width="60" height="60"></img>
           <div className="logout-container">
             <Button variant="contained" color="error" onClick={handleLogout}>
               LOGOUT

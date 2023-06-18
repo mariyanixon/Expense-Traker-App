@@ -119,7 +119,8 @@
 
                 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, AppBar, Box, Toolbar } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate } from 'react-router-dom';
+
 import './Single.css';
 
 const Profilepage = () => {
@@ -132,6 +133,7 @@ const Profilepage = () => {
     phoneNumber: ''
   });
   const [userid, setUserId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch user details from the backend
@@ -186,6 +188,7 @@ const Profilepage = () => {
       }
        // Assuming the update was successful, you can handle the success scenario here
        console.log('User profile updated successfully');
+       navigate("/Home");
     } catch (error) {
       console.error(error);
     }
