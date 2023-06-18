@@ -8,12 +8,6 @@ import axios from 'axios';
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
-  const [editingExpenseId, setEditingExpenseId] = useState('');
-  const [editFormData, setEditFormData] = useState({
-    username: '',
-    income: 0,
-    expense: 0
-  });
 
   const getTotal = () => {
     let total = 0;
@@ -30,48 +24,13 @@ const Dashboard = () => {
     try {
       const response = await axios.get('/api/expenses', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`, 
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
       });
       setExpenses(response.data);
     } catch (error) {
       console.error('Error fetching expenses:', error);
     }
-  };
-
-  const handleEditExpense = (expenseId) => {
-    const expenseToEdit = expenses.find((expense) => expense._id === expenseId);
-    setEditingExpenseId(expenseId);
-    setEditFormData({
-      username: expenseToEdit.username,
-      income: expenseToEdit.income,
-      expense: expenseToEdit.expense
-    });
-  };
-
-  const handleUpdateExpense = (e) => {
-    e.preventDefault();
-    axios.put(`/api/expenses/${editingExpenseId}`, editFormData)
-      .then(response => {
-        console.log('Expense updated successfully:', response.data);
-        setEditingExpenseId('');
-        setEditFormData({
-          username: '',
-          income: 0,
-          expense: 0
-        });
-        fetchExpenses(); // Refresh expenses data after update
-      })
-      .catch(error => {
-        console.error('Error updating expense:', error);
-      });
-  };
-
-  const handleEditFormChange = (e) => {
-    setEditFormData({
-      ...editFormData,
-      [e.target.name]: e.target.value
-    });
   };
 
   const handleDeleteClick = (expenseId) => {
@@ -88,15 +47,28 @@ const Dashboard = () => {
       });
   };
 
-  const handleSaveClick = () => {
-    setEditingExpenseId('');
-    setEditFormData({
-      username: '',
-      income: 0,
-      expense: 0
-    });
-    window.location.reload(); // Refresh the page
+  const handleBlockClick = (userId) => {
+    axios.put(`/api/user/${userId}/block`)
+      .then(response => {
+        console.log('User blocked successfully:', response.data);
+        // Update the expenses state to reflect the updated block status
+        setExpenses(prevExpenses =>
+          prevExpenses.map(expense => {
+            if (expense._id === userId) {
+              return {
+                ...expense,
+                isBlocked: true
+              };
+            }
+            return expense;
+          })
+        );
+      })
+      .catch(error => {
+        console.error('Error blocking user:', error);
+      });
   };
+  
 
   return (
     <div>
@@ -108,7 +80,7 @@ const Dashboard = () => {
         <div className="content">
           <h1 className="heading">Admin DashBoard</h1>
           <Button variant="contained" color="error" >LOGOUT</Button>
-         
+
           <div className="table-container">
             <TableContainer>
               <Table>
@@ -123,41 +95,35 @@ const Dashboard = () => {
                 <TableBody>
                   {expenses.map((expense) => (
                     <TableRow key={expense._id}>
-                      <TableCell  style={{ color: "white"}}>{expense.username}</TableCell>
-                      <TableCell  style={{ color: "white"}}>{expense.income}</TableCell>
-                      <TableCell  style={{ color: "white"}}>{expense.expense}</TableCell>
+                      <TableCell style={{ color: "white" }}>{expense.username}</TableCell>
+                      <TableCell style={{ color: "white" }}>{expense.income}</TableCell>
+                      <TableCell style={{ color: "white" }}>{expense.expense}</TableCell>
+                      {/* <TableCell>
+
+                        <>
+                          <Button variant="contained" color="primary">Block</Button>
+                          <Button variant="contained" color="secondary" onClick={() => handleDeleteClick(expense)}>Delete</Button>
+
+                        </>
+
+                      </TableCell> */}
                       <TableCell>
-                        {editingExpenseId === expense._id ? (
-                          <form onSubmit={handleUpdateExpense}>
-                            <input
-                              type="text"
-                              name="username"
-                              value={editFormData.username}
-                              onChange={handleEditFormChange}
-                            />
-                            <input
-                              type="number"
-                              name="income"
-                              value={editFormData.income}
-                              onChange={handleEditFormChange}
-                            />
-                            <input
-                              type="number"
-                              name="expense"
-                              value={editFormData.expense}
-                              onChange={handleEditFormChange}
-                            />
-                            {/* <Button type="submit" variant="contained" color="success">Save</Button>
-                            <Button variant="contained" color="secondary" onClick={handleSaveClick}>Cancel</Button> */}
-                          </form>
-                        ) : (
-                          <>
-                            <Button variant="contained" color="primary" onClick={() => handleEditExpense(expense._id)}>Block</Button>
-                            <Button variant="contained" color="secondary" onClick={() => handleDeleteClick(expense)}>Delete</Button>
-                            
-                          </>
-                        )}
-                      </TableCell>
+  <>
+    {expense.isBlocked ? (
+      <Button variant="contained" disabled>
+        Blocked
+      </Button>
+    ) : (
+      <Button variant="contained" color="primary" onClick={() => handleBlockClick(expense._id)}>
+        Block
+      </Button>
+    )}
+    <Button variant="contained" color="secondary" onClick={() => handleDeleteClick(expense)}>
+      Delete
+    </Button>
+  </>
+</TableCell>
+
                     </TableRow>
                   ))}
                 </TableBody>
